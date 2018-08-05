@@ -1,0 +1,908 @@
+% Comments start with % (percent) character and last till the end of the line.
+%
+% The line below tells TeXworks editor to use pdflatex for compilation
+% of this document; remove it if you want to use another engine 
+%
+%!TEX program = pdflatex
+%
+% LaTeX2e document starts with \documentclass[options]{<class-name>}
+% <class-name> can be one of the standard LaTeX document classes: 
+% article, report or book, or some other specialised class.
+%
+\documentclass{article}
+%
+% Preamble of LaTeX document is everything before \begin{document}.
+% Preamble is used to load extension packages and to set up global 
+% parameters and configuration for the entire document.
+%
+% Extension packages providing additional functionality
+\usepackage{amsmath}       % additional math environments
+\usepackage{graphicx}      % graphics import from external files 
+\usepackage{epstopdf}      % automates .eps to .pdf conversion 
+% epstopdf package may require --shell-escape option to pdflatex
+\usepackage{booktabs}      % table typesetting additions
+\usepackage{siunitx}       % number and units formatting
+\usepackage{caption}       % customisation of captions
+\usepackage{url}           % format url addresses
+\usepackage{abstract}		% allows formatting of abstract
+\usepackage[margin=1.5in]{geometry}
+%\usepackage{tikz,pgfplots} % diagrams and data plots
+%
+% set up caption options
+\captionsetup{margin=12pt,font=small,labelfont=bf}
+%
+%removes abstract title
+\renewcommand{\abstractname}{}
+%sets abstract margins
+\setlength{\absleftindent}{10mm}
+\setlength{\absrightindent}{10mm}
+%
+% global options for siunitx
+%\sisetup{seperr,repeatunits=false,per=symbol}
+%
+% some handy commands for referencing;
+% the optional argument overrides the default label, e.g.
+% \figref[FIG.~]{fig:label}
+\newcommand{\figref}[2][\figurename~]{#1\ref{#2}}
+\newcommand{\tabref}[2][\tablename~]{#1\ref{#2}}
+\newcommand{\secref}[2][Section~]{#1\ref{#2}}
+
+
+% The document content starts with \begin{document} 
+% and is finished with \end{document}
+%
+\begin{document}
+\title{Laws of Refraction and Reflection} % fill in the title here
+\author{Matthew Evans}% fill in your name here
+\date{12\textsuperscript{th} February 2018} % date of the report
+%\twocolumn[	% makes title and abstract appear over entire page width
+\maketitle % formats the title
+\begin{onecolabstract}
+\noindent
+Various refractive properties of acrylic and different liquids were investigated by  measuring the angle of incidence and refraction. This was used in conjunction with Snell's law to determine the refractive index, critical angle and Brewster's angle for the media. The calculated value for the refractive index of acrylic was $1.53 \pm 0.02$ whilst the theoretical value was $1.50$ \cite{Paper01}. This showed that the experiment into determining the refractive index for this material was fairly successful, however the values for the various liquids were varied; revealing that more care should have been taken during the experimental process. The refractive properties of materials is important to many applications {\textendash} in particular the medical industry use of optical fibres.
+
+\end{onecolabstract}
+\vspace{5 mm} % takes one free line before rest of text
+
+
+\section{Introduction}
+\label{sec:introduction}
+
+Refraction is when waves travel at an angle to a surface normal from one medium to another and these mediums have different refractive indices. When this occurs the wave's velocity changes and the wave is either bent towards the normal if it slows down up or away from it if it speeds up \cite{Paper01}. The refractive index of a material is the ratio of the speed of electromagnetic waves $c$ in a vacuum to the speed $v$ in a given material and is given by;
+
+\begin{equation}
+\label{eq:refractive-index}
+n = \frac{c}{v} 
+\end{equation}
+
+\vspace{2mm}
+\noindent
+Where $n$ is the refracive index of the material. 
+
+\vspace{2mm}
+\noindent
+Investigating refractive indices of materials is of particular importance to many applications and devices. For example, the use of optical fibres in medical science. This requires the understanding of the properties of refractive indices of materials in order for light waves to travel from one end of the fibre to the observing end by reflection and the knowledge of the \textit{critical angle}. This will be mentioned in more detail in \secref{sec:theory}. For more coverage into the applications of refraction and reflection please refer to \cite{Book01}.
+
+\vspace{2mm}
+\noindent
+For this particular experiment the investigations into refraction involved electromagnetic light waves travelling from air to a another medium or vice versa. The media investigated were acrylic and various liquids: water, olive oil, turpentine and gin $\sim40\%$ Ethyl Alcohol.
+
+
+\section{Theory}
+\label{sec:theory}
+
+The relationship between the refractive indices of the materials and the angles of incidence and refraction is given by \eqref{eq:snell's-law};
+
+
+\begin{equation}
+\label{eq:snell's-law}
+n_1sin\theta_1 = n_2sin\theta_2 
+\end{equation}
+
+\vspace{2mm}
+\noindent
+Where $n_1$ and $n_2$ are the refractive indices of both media \cite{Paper01}, $\theta_2$ is the refracted angle and $\theta_1$ is the incident angle. The principle of refraction is shown in \figref{fig:snell's-law} below where $n_1>n_2$. This can be used to determine the refractive index of many different materials: for this particular experiment acrylic and various liquids. The higher the refractive index of a material, the more the electromagnetic wave will slow down and will therefore be bent towards the normal (the dashed vertical line) as shown in \figref{fig:snell's-law} below.
+
+\begin{figure}[h]
+\centering
+\includegraphics[scale=0.42]{"snellslaw".pdf}
+\caption{Snell's law and light refraction}
+\label{fig:snell's-law}
+\end{figure}
+
+\vspace{2mm}
+\noindent
+At the critical angle, the ray travelling from a substance with \textit{higher} refractive index to a \textit{lower} refractive index travels along the surface boundary of the materials: i.e. the refracted angle, $\theta_2=90^{\circ}$. If the incident angle $\theta_1$ exceeds the critical angle of incidence $\theta_c$, the ray is totally internally reflected and there is no refractive ray. The critical angle is illustrated by \figref{fig:critical-angle} below, where, $n_1>n_2$.
+
+\begin{figure}[h]
+\centering
+\includegraphics[scale=0.42]{"criticalangle".pdf}
+\caption{The critical angle}
+\label{fig:critical-angle}
+\end{figure}
+
+\noindent
+\eqref{eq:snell's-law} can be rearranged to give the following expression for determining the critical angle;
+
+\begin{equation}
+\label{eq:critical-angle}
+\theta_c = sin^{-1}\frac{n_2}{n_1}
+\end{equation}
+
+\noindent
+Where $\theta_c$ is the critical angle and $n_2$ and $n_1$ are the refractive indices of the materials (where $n_1>n_2$). For more information and insight into the critical angle, please refer to \cite{Book01}.
+
+\vspace{2mm}
+\noindent
+When light travels from a boundary going from a low-index to a high-index material an interesting features occurs when the angle of refraction, $\theta_2$, is \cite{Paper01};
+
+\begin{equation}
+\label{eq:brewster's-angle1}
+\theta_2 = (90^{\circ} - \theta_1)
+\end{equation}
+
+\noindent
+As a result, the reflected light is polarised. As the incident light crosses the boundary, the electrons of the atoms in the interface oscillate due to their own charge as a result of the electric field vectors of the light \cite{Paper01}. At an incident angle known as the \textit{Brewster's angle}, the incident light is completely refracted. This is provided that the incident light ray is polarised. At this particular angle of incidence, \eqref{eq:brewster's-angle1} becomes:
+
+\begin{equation}
+\label{eq:brewster's-angle2}
+\theta_2 = (90^{\circ} - \theta_B)
+\end{equation}
+
+\noindent
+Where $\theta_B$ is the Brewster's angle. However, for our system the incident light is unpolarised so the brightness will drop by about $50\%$ when the angle of incidence is at the Brewster's angle. This is illustrated in  below. 
+
+\begin{figure}[h]
+\centering
+\includegraphics[scale=0.42]{"brewsters".pdf}
+\caption{Brewster's angle illustration}
+\label{fig:critical-angle}
+\end{figure}
+
+\noindent
+The red arrows indicate the component parallel to the page and the blue dots indicate the component perpendicular to the plane of the page \cite{Book02}. The dashed line represents the normal.
+
+\vspace{2mm}
+\noindent
+By substituting this expression of $\theta_2$ into \eqref{eq:snell's-law} we have;
+
+\begin{equation}
+\label{eq:brewster's-angle3}
+n_1sin(\theta_1) = n_2sin(90-\theta_B) 
+\end{equation}
+
+\noindent 
+After some rearranging to make $\theta_B$ the subject, we finally get an expression for the Brewseter's angle as a function of $n_1$ and $n_2$:
+
+
+\begin{equation}
+\label{eq:brewser's-angle}
+\theta_B = tan^{-1}\frac{n_1}{n_2}
+\end{equation}
+
+\noindent
+And, of course, in this situation $n_2>n_1$. For more insight and depth into the Brewster's angle, please refer to \cite{Paper01} and \cite{Book02}.
+
+
+
+\section{Method}
+\label{sec:method}
+
+This experiment had four parts associated with it and each part will be explained in this section.
+
+\subsection{Refraction Through Parallel Interfaces}
+\label{ssec:parallel-interfaces}
+
+For the first part of the experiment refraction through parallel interfaces of an acrylic trapezoid was investigated. \figref{fig:method1} below shows the general set-up of the experiment:
+
+\begin{figure}[h]
+\centering
+\includegraphics[scale=0.45]{"Refraction Method 1".pdf}
+\caption{Exerimental Set-Up of Refraction Through Parallel Interfaces}
+\label{fig:method1}
+\end{figure}
+
+\noindent
+The acrylic trapezoid was placed on a sheet of white paper. A single ray of white light was selected from the source and this was made sure that the ray passed through the parallel sides \cite{Paper01} as indicated in \figref{fig:method1}. Care was taken to ensure that the beam was refracted through these parallel interfaces of the trapezoid. Whilst the trapezoid was on the paper, a sketch, using a pencil, was made around the trapezoid and with the aid of a rule the incident and refracted beams of the single ray source were also sketched onto the sheet of white paper. Care was also taken to mark the incident and outgoing rays with arrows \cite{Paper01}. After these sketches were made, the block was taken off the paper and the light source switched off. Then with the aid of protractor, the normals to each surface of the trapezoid were drawing and the angle of incidence and refraction were measured \cite{Paper01}. This part of the experiment was undertaken a total of three times. By using Snell's law, \eqref{eq:snell's-law} three values of the refractive index of the acrylic trapezoid were obtained. These were then averaged to give an estimate of the refractive index of acrylic \cite{Paper01} and the uncertainty associated with this result was obtained by simply taking half the spread of the results. See \secref{ssec:refractive-index-of-acrylic} for more details.
+
+\subsection{Colour Separation in a Prism}
+\label{ssec:colour-separation}
+
+Next the colour separation of a prism was investigated. The trapezoid was set-up as shown below in \figref{fig:method2}:
+
+\begin{figure}[h]
+\centering
+\includegraphics[scale=0.45]{"Refraction Method 2".pdf}
+\caption{Exerimental Set-Up of Colour Separation in a Prism}
+\label{fig:method2}
+\end{figure}
+
+\vspace{10mm}
+\noindent
+As shown in \figref{fig:method2} the acrylic trapezoid was positioned on the rotation platform such that the incident beam entered the acute-angled faces \cite{Paper01}. The ray box was moved close to the trapezoid to ensure that the maximum transmission of light occurred \cite{Paper01}. The trapezoid was then rotated to gain the largest angle from the emerging ray. This was rotated until the refracted beam of white light separated out into its colours. A note of the colours observed and the order in which they appeared was taken. In addition to which colour was refracted by the largest angle. All of this would give an insight to the properties of acrylic which will be discussed in \secref{sec:discussion}. 
+
+\vspace{2mm}
+\noindent
+Next, without changing the position of the apparatus given in \figref{fig:method2}, the light source was changed so that it was producing the three primary colours \cite{Paper01} red, green and blue. (However, there were some discrepancies when performing this experiment which will be discussed further in \secref{sec:discussion}.) A note was taken on whether the coloured rays emerged parallel to eachother from the source, or not.
+
+\subsection{Snell's Law and the Critical Angle}
+\label{ssec:snell's-law}
+
+Next, a D shaped acrylic lens was selected and positioned in the set-up given in \figref{fig:method3} below:
+
+\begin{figure}[h]
+\centering
+\includegraphics[scale=0.45]{"Refraction Method 3".pdf}
+\caption{Exerimental Set-Up Investigating Snell's Law and the Critical Angle}
+\label{fig:method3}
+\end{figure}
+
+\vspace{20mm}
+\noindent
+The acrylic D shaped lens was placed in the outline on the ray table indicated in \figref{fig:method3}. Then, the light source was changed to select the single white light ray. The ray box was carefully positioned as in \figref{fig:method3} so that the incident ray crosses the centre of the ray table. The ray table was then rotated anti-clockwise in $5^{\circ}$ degree increasing increments for the incident angle from the source. At each increment, the refracted angle was measured using the ray table and an associated error for each refracted angle was estimated. After taking several measurements, the curved side of the D shaped acrylic lens was eventually facing the light source. Again, measurements for the incident and refracted angles were taken. When taking measurements for this part of the experiment, care was taken to observe when total internal reflection of the light rays occurred and refraction started to be observed again. At this point, the incident or in this particular case of total internal reflection, the \textit{critical} was noted. Beyond this point, the ray should be refracted. These angles can then be compared with the initial refracting angles (where the incident ray is contact with the flat side) to see if Snell's law is reciprocal. By using Snell's law \eqref{eq:snell's-law}, the first set of incident angles up to $85^{\circ}$ and corresponding refracted angles can then be plotted on a graph of $sin\theta_2$ vs $sin\theta_1$, where $\theta_2$ is the refracted angle and $\theta_1$ is the incident angle.
+
+\vspace{2mm}
+\noindent
+The next part of this set-up investigated how the refractive index varied with the various colours/wavelengths of white light. The ray table was rotated so that the incident ray entered curved side of the D shaped lens acrylic lens \cite{Paper01}. A piece of white paper was held vertically near the edge of the ray table so that the outgoing ray was noticeable on it \cite{Paper01}. The ray table was slowly rotated so that the white light separated out into its component colours. A note of the incident angle was made when the colour separation started to occur and the refracted angles for the red and blue light were made (along with associated errors for these refracted angles). 
+
+
+\subsection{Brewster's Angle}
+\label{ssec:brewster's-angle}
+
+The Brewster's angle was investigated using the experimental set-up shown in \figref{fig:method4}:
+
+\begin{figure}[h]
+\centering
+\includegraphics[scale=0.45]{"Refraction Method 4".pdf}
+\caption{Exerimental Set-Up Investigating the Brewster's Angle}
+\label{fig:method4}
+\end{figure}
+
+\noindent
+Firstly, the ray box was elevated so that the single white light ray could pass through the block via the filter as shown in \figref{fig:method4}. So a filter was required to observe the 50\% dip in brightness of the reflected beam. Then, the D shaped acrylic lens was positioned exactly in the centred outline indicated in \figref{fig:method4}. The ray table was \textit{slowly} rotated anti-clockwise so that the incident ray entered the lens through the flat side \cite{Paper01} When an observed dip in brightness occurred of 50\%, the incident angle/the Brewster's angle $\theta_B$ was measured. An associated uncertainty was also estimated for this value.
+
+\subsection{Refractive Properties of Various Fluids}
+\label{ssec:properties-of-fluids-method}
+
+In addition to investigating the refractive properties of acrylic, various fluids were also tested: water, olive oil, turpentine and gin.
+
+\vspace{2mm}
+\noindent
+Firstly, as a check, the big D shaped part of the plastic container used to contain the liquid was placed in the outline on the ray table (as indicated in \figref{fig:method3} for the acrylic d shaped lens). Then the incident beam was directed at the plastic container at $0^{\circ}$ to the ray table. The refracted beam was then measured. This was to ensure that the refractive index of the plastic container containing the liquid was negligible. If there was a difference, then it would be noted as a systematic error and this would be compensated for in the refracted angle measurements of the experiment.
+
+\vspace{2mm}
+\noindent
+Next the D shaped container was filled with the fluid to be tested as indicated in \figref{fig:method5}. The other half was left unfilled. 
+
+\begin{figure}[h]
+\centering
+\includegraphics[scale=0.4]{"chamber".pdf}
+\caption{Liquid D shaped container}
+\label{fig:method5}
+\end{figure}
+
+\vspace{50mm}
+\noindent
+The light source dial was chosen to select the single white light ray. Then the ray  table was rotated in $5^{\circ}$ anti-clockwise increments for the incident angle from the source. The refracted angle was then noted. The set-up for this is indicated in \figref{fig:method6}. The refracted angles were measured until they became unidentifiable. The experiment was then repeated; this time rotating the ray table in a clockwise direction.
+
+\begin{figure}[h]
+\centering
+\includegraphics[scale=0.4]{"fluidmethod".pdf}
+\caption{Experimental set-up investigating the refractive properties of various fluids}
+\label{fig:method6}
+\end{figure}
+
+\vspace{2mm}
+\noindent
+The critical angle and Brewster's angle were also obtained for the fluids. These were achieved by the same techniques to determine these values for acrylic described in \secref{ssec:snell's-law} and \secref{ssec:brewster's-angle} respectively.
+
+\newpage
+\section{Results}
+\label{sec:results}
+
+In this section the results for the refractive index of acrylic and the various fluids (using Snell's law), the critical angle and the Brewster's angle will be presented. More evaluation into the experiment will take place in \secref{sec:discussion}.
+
+\subsection{Refractive Index of Acrylic}
+\label{ssec:refractive-index-of-acrylic}
+
+\vspace{2mm}
+\noindent
+Firstly, as mentioned in \secref{ssec:parallel-interfaces}, an \textit{estimate} of the refractive index of the acrylic trapezoid was made. This was made by using the technique discussed in \secref{ssec:parallel-interfaces}. An example of one of the three estimates is given below:
+
+\begin{figure}[h]
+\centering
+\includegraphics[scale=0.6]{"estimate".pdf}
+\caption{Estimate of the Incident Angle, $\theta_1$ and the Refracted Angle $\theta_2$}
+\label{fig:estimate}
+\end{figure}
+
+\vspace{2mm}
+\noindent
+After taking three sketches similar to \figref{fig:estimate} and measurements for the incident, $\theta_1$, and refracted, $\theta_2$ angles using a protractor for the outline sketch angles, three refractive index values for the trapezoid was obtained. These results were averaged and a value of $1.53 \pm 0.03$ was obtained. The uncertainty was obtained for this estimate by simply taking half the spread of the results. 
+
+\vspace{2mm}
+\noindent
+
+\begin{figure}[h]
+\centering
+\includegraphics[scale=0.6]{"graph".png}
+\caption{Graph of $sin{\theta_2}$ vs $sin{\theta_1}$ for Acrylic}
+\label{fig:graph}
+\end{figure}
+
+\vspace{2mm}
+\noindent
+\figref{fig:graph} shows how the values of $sin{\theta_2}$ varies with increasing $sin{\theta_1}$ for the acrylic D shaped lens. As mentioned in \secref{ssec:snell's-law} the values obtained for $\theta_1$ and $\theta_2$ we obtained by increasing the angle of incidence, $\theta_1$, in 5$^{\circ}$ increments rotating the ray table anti-clockwise. Then the angle of refraction, $\theta_2$, was measured using the ray table. An associated error of $\pm1^{\circ}$ (due to the beam width) was also estimated for the incident ray. These are displayed as the horizontal error bars in \figref{fig:graph}. From \figref{fig:graph}, the gradient was obtained using a least squares fit criterion in Octave. By using Snell's law, \eqref{eq:snell's-law}, and rearranging the make $n_2$ (the refractive index of the D shaped acrylic block) the subject, the reciprocal value of the gradient was used to obtain $n_2$.
+
+\vspace{2mm}
+\noindent
+The associated error for the refractive index of acrylic was obtained by using the error in the gradient obtained from the graph. The process of determining these errors is described by \eqref{eq:gradient-error} and \eqref{eq:gradient-error2}:
+
+\begin{equation}
+\label{eq:gradient-error}
+m_{0} + \delta{m} = m_{1}
+\end{equation}
+
+\begin{equation}
+\label{eq:gradient-error}
+m_{0} - \delta{m} = m_{2}
+\end{equation}
+
+\begin{equation}
+\label{eq:gradient-error2}
+\frac{\frac{1}{m_{2}} - \frac{1}{m_{1}}}{2} = \delta{n_2}
+\end{equation} 
+
+\vspace{2mm}
+\noindent
+Where $m_{0}$ is the gradient of the graph, $\delta{m}$ is the error in the gradient, $m_{2}$ and $m_{1}$ is the `worst' possible gradients of the graph and $\delta{n_2}$ is the error in the refractive index.
+
+\vspace{2mm}
+\noindent
+The value of of the refractive index for the D shaped acrylic block, $n_2$, obtained using \figref{fig:graph} was $1.53 \pm 0.02$. 
+Note that in \figref{fig:graph} the vertical error bars for the last two values of were larger than the first sixteen values. This was due to the nature of the refracted beam; at these particular incident angles the refracted beam was wider and therefore had more associated error when reading the angles on the ray table. The last two had an error of $\pm3^{\circ}$ compared to the first sixteen which had an error of $\pm1^{\circ}$.
+
+
+\vspace{70mm}
+\noindent
+\tabref{tab:table1} shows a summary of the values for the various calculated values for the refractive index of acrylic along with the theoretical value given in \cite{Paper01}. Further discussion of these values will be presented in \secref{sec:discussion}.
+
+\vspace{5mm}
+\begin{table*}[h]
+\centering % centre table
+\caption{Table of Values and for the Refractive Index of Acrylic}
+\label{tab:table1}
+\begin{tabular}{|c|c|}
+\hline
+Value & Refractive Index of Acrylic $n_2$ \\
+\hline
+Estimated & $1.53 \pm 0.03$  \\
+\hline
+Graph & $1.53 \pm 0.02$ \\
+\hline
+Theoretical \cite{Paper01} & $1.50$ \\
+\hline
+\end{tabular}
+%\end{center}
+\end{table*}
+
+\subsection{Crictical Angle of Acrylic}
+\label{ssec:critical-angle}
+
+\tabref{tab:table2} shows the values obtained for the critical angle for the acrylic D shaped block along with the theoretical value of acrylic given in \cite{Paper01}. The observed angle was obtained by noting the angle of the ray table when and total internal reflection occurred and the graphical value for the critical angle was obtained by using the value of the refractive index of acrylic from \figref{fig:graph}. The error for the observed angle was estimated by looking at the width of the refracted beam whilst the associated error in the graph value, $\delta{\theta_c}$, was obtained from the error in the gradient on the graph. These errors were determined by using similar techniques to \secref{ssec:refractive-index-of-acrylic}. However, this time it was achieved by half the range in the `worst' possible critical angle values to determine the associated errors:
+
+\begin{equation}
+\label{eq:gradient-error3}
+\frac{sin^{-1}({m_{2})} - sin^{-1}({m_{1}})}{2} = \delta{\theta_c}
+\end{equation} 
+
+\vspace{2mm}
+\noindent
+All the graph and theoretical values were calculated by \eqref{eq:critical-angle} using the graph and theoretical values of $n_2$ given in \tabref{tab:table1}.
+
+\vspace{5mm}
+\begin{table*}[h]
+\centering % centre table
+\caption{Table of Calculated Values and Published Values for the Critical Angle of Acrylic}
+\label{tab:table2}
+\begin{tabular}{|c|c|}
+\hline
+Value & Critical Angle $\theta_c$/$^{\circ}$ \\
+\hline
+Observed & $43.0 \pm 1.0$  \\
+\hline
+Graph & $40.9 \pm 0.7$ \\
+\hline
+Theoretical \cite{Paper01} & $41.8$ \\
+\hline
+\end{tabular}
+%\end{center}
+\end{table*}
+
+\subsection{Brewster's Angle of Acrylic}
+\label{ssec:brewsters-angle}
+
+Using similar techniques to \secref{ssec:critical-angle} the values for the Brewster's angle, as shown in \tabref{tab:table3}, were determined. This time, the graphical and theoretical values were obtained using \eqref{eq:brewser's-angle} using the graph and theoretical values of $n_2$ given in \tabref{tab:table1}. Again the associated errors for these values were obtained using the same techniques to determine the critical angle associated errors, see \secref{ssec:critical-angle} for details. However, this time it was half the range of the `worst' possible values for the Brewster's angle using \eqref{eq:gradient-error4}:
+
+\begin{equation}
+\label{eq:gradient-error4}
+\frac{\tan^{-1}({\frac{1}{m_2})} - \tan^{-1}(\frac{1}{m_{1}})}{2} = \delta{\theta_B}
+\end{equation} 
+
+\vspace{2mm}
+\noindent
+Where $\delta{\theta_B}$ is the associated error for the graphical value of the Brewster's angle presented in \tabref{tab:table3} below.
+
+\vspace{5mm}
+\begin{table*}[h]
+\centering % centre table
+\caption{Table of Calculated Values and Published Values for the Brewster's Angle of Acrylic}
+\label{tab:table3}
+\begin{tabular}{|c|c|}
+\hline
+Value & Brewster's Angle $\theta_B$/$^{\circ}$ \\
+\hline
+Observed & $55.0 \pm 1.0$  \\
+\hline
+Graph & $56.8 \pm 0.4$ \\
+\hline
+Theoretical \cite{Paper01} & $56.3$ \\
+\hline
+\end{tabular}
+%\end{center}
+\end{table*}
+
+\subsection{Refractive Properties of Various Fluids}
+\label{ssec:properties-of-fluids}
+
+\vspace{5mm}
+As mentioned in \secref{sec:method} the refractive index of various fluids were measured. The critical angle and Brewster's angle for these various fluids were also determined. 
+
+\begin{figure}[h]
+\centering
+\includegraphics[scale=0.6]{"graphwater".png}
+\caption{Graph of $sin{\theta_2}$ vs $sin{\theta_1}$ for Water}
+\label{fig:graph2}
+\end{figure}
+
+\vspace{25mm}
+\noindent
+\figref{fig:graph2} shows how the values of $sin{\theta_2}$ varies with increasing $sin{\theta_1}$ for water. By using the same techniques to determine the refractive index using the acrylic D shaped block, as described in \secref{ssec:refractive-index-of-acrylic} the refractive index of water was determined from \figref{fig:graph2}. However, this time the experiment was repeated so two measurements for the refracted angle of water were obtained. So, the average value of the two refracted angle measurements was used to obtain the various $\sin{\theta_2}$ values for each incident angle as shown in \figref{fig:graph2}. This was used in conjunction with the least squares fit criterion in Octave to plot \figref{fig:graph2}. Again, the associated errors for the incident was determined by the width of the incident beam. Due to the experiment being repeated, the vertical error bars are smaller than that of \figref{fig:graph}. The vertical error bars were obtained by the formulae below;
+
+\begin{equation}
+\label{eq:mean-value}
+\theta_2 = \frac{\alpha + \beta}{2}
+\end{equation} 
+
+\begin{equation}
+\label{eq:propogation-error}
+\delta\theta_2 = \sqrt{\bigg({\frac{\partial\alpha}{\partial\theta_2}}\bigg)^2(\delta\alpha)^2 + \bigg({\frac{\partial\beta}{\partial\theta_2}}\bigg)^2(\delta\beta)^2 }
+\end{equation} 
+
+\vspace{2mm}
+\noindent
+\eqref{eq:mean-value} shows how the value of the refracted angle was obtained: simply by taking the average of the two measured refracted angles $\alpha$ and $\beta$ respectively. Since the error of these refracted angles were the same ($\pm1^{\circ}$), then \eqref{eq:propogation-error} reduces to:
+
+\begin{equation}
+\label{eq:propogation-error2}
+\delta\theta_2 = \pm\bigg(\frac{1}{\sqrt{2}}\bigg)^{\circ} \approx \pm0.7^{\circ}
+\end{equation} 
+
+\vspace{2mm}
+\noindent
+Hence, the error in the refracted angle, $\delta\theta_2$, in this experiment was reduced compared to that of acrylic mentioned in \secref{ssec:refractive-index-of-acrylic} as a result of the average of two measurments taken.
+
+\vspace{2mm}
+\noindent
+The table below shows how the calculated value of the refractive index of water compares to that of the theoretical value given by \cite{Web01}. Further discussion of these results will be presented in \secref{sec:discussion}.
+
+\vspace{5mm}
+\begin{table*}[h]
+\centering % centre table
+\caption{Table of Values for the Refractive Index of Water}
+\label{tab:table-water}
+\begin{tabular}{|c|c|}
+\hline
+Value & Refractive Index of Water $n_w$ \\
+\hline
+Calculated (Graph) & $1.23 \pm 0.01$  \\
+\hline
+Theoretical \cite{Web01} & $1.33$ \\
+\hline
+\end{tabular}
+%\end{center}
+\end{table*}
+
+\newpage
+\vspace{10mm}
+\noindent
+The graphs below all show how the values of $sin{\theta_2}$ varies with increasing $sin{\theta_1}$ for the other liquids tested: olive oil, turpentine and gin.
+
+
+\vspace{20mm}
+\begin{figure}[h]
+\centering
+\includegraphics[scale=0.6]{"graphoil".png}
+\caption{Graph of $sin{\theta_2}$ vs $sin{\theta_1}$ for Olive Oil}
+\label{fig:graph3}
+\end{figure}
+
+\begin{figure}[h]
+\centering
+\includegraphics[scale=0.61]{"graphturpentine".png}
+\caption{Graph of $sin{\theta_2}$ vs $sin{\theta_1}$ for Turpentine}
+\label{fig:graph4}
+\end{figure}
+
+\begin{figure}[h]
+\centering
+\includegraphics[scale=0.6]{"graphgin".png}
+\caption{Graph of $sin{\theta_2}$ vs $sin{\theta_1}$ for Gin 	$\sim40\%$ Ethyl Alcohol}
+\label{fig:graph5}
+\end{figure}
+
+\cleardoublepage
+\vspace{2mm}
+\noindent
+Again using the same techniques to determine the refractive index of water the refractive indices for olive oil, turpentine and gin were determined. Using \eqref{eq:mean-value} to obtain the refracted angle from the two measurements. The associated errors for the refractive index values of the various liquids were also obtained in the same way as that of water using \eqref{eq:propogation-error} and \eqref{eq:propogation-error2}.
+
+\vspace{2mm}
+\noindent
+The tables below show a summary of the values for the various calculated values and theoretical values of the above liquids. Further discussion of these values will be presented in \secref{sec:discussion}.
+
+\vspace{2mm}
+\begin{table*}[h]
+\centering % centre table
+\caption{Table of Values for the Refractive Index of Olive Oil}
+\label{tab:table-oil}
+\begin{tabular}{|c|c|}
+\hline
+Value & Refractive Index of Olive Oil $n_o$ \\
+\hline
+Calculated (Graph) & $1.31\pm 0.01$  \\
+\hline
+Theoretical \cite{Web01} & $1.46$ \\
+\hline
+\end{tabular}
+%\end{center}
+\end{table*}
+
+\vspace{2mm}
+\begin{table*}[h]
+\centering % centre table
+\caption{Table of Values for the Refractive Index of Turpentine}
+\label{tab:table-turpentine}
+\begin{tabular}{|c|c|}
+\hline
+Value & Refractive Index of Turpentine $n_t$ \\
+\hline
+Calculated (Graph) & $1.31\pm 0.01$  \\
+\hline
+Theoretical \cite{Web01} & $1.47$ \\
+\hline
+\end{tabular}
+%\end{center}
+\end{table*}
+
+\vspace{2mm}
+\begin{table*}[h]
+\centering % centre table
+\caption{Table of Values for the Refractive Index of Gin $\sim40\%$ Ethyl Alcohol}
+\label{tab:table-gin}
+\begin{tabular}{|c|c|}
+\hline
+Value & Refractive Index of Gin $n_g$ \\
+\hline
+Calculated (Graph) & $1.23\pm 0.01$  \\
+\hline
+Theoretical \cite{Web02} & $1.36$ \\
+\hline
+\end{tabular}
+%\end{center}
+\end{table*}
+
+\vspace{10mm}
+\noindent
+The critical angle was also determined for these various liquids. Again, an observed, calculated and theoretical value were obtained using the same techniques mentioned in \secref{ssec:critical-angle} for the acrylic D shaped block. The associated errors for these measurements were again determined by the same techniques mentioned in \secref{ssec:critical-angle}. The results for these are presented in the tables below.
+
+
+%\begin{table*}[h]
+%\centering % centre table
+%\caption{Table of Calculated Values and Published Values for the Critical Angle of %Water}
+%\label{tab:table-water2}
+%\begin{tabular}{|c|c|}
+%\hline
+%Value & Critical Angle $\theta_c$/$^{\circ}$ \\
+%\hline
+%Observed & $55.0 \pm 1.0$  \\
+%\hline
+%Graph & $54.6 \pm 0.7$ \\
+%\hline
+%Theoretical \cite{Web01} & $48.6$ \\
+%\hline
+%\end{tabular}
+%\end{center}
+%\end{table*}
+
+%\newpage
+%\begin{table*}[h]
+%\centering % centre table
+%\caption{Table of Calculated Values and Published Values for the Critical Angle of %Olive Oil}
+%\label{tab:table-oil2}
+%\begin{tabular}{|c|c|}
+%\hline
+%Value & Critical Angle $\theta_c$/$^{\circ}$ \\
+%\hline
+%Observed & $49.0 \pm 1.0$  \\
+%\hline
+%Graph & $49.8 \pm 0.6$ \\
+%\hline
+%Theoretical \cite{Web01} & $43.2$ \\
+%\hline
+%\end{tabular}
+%\end{center}
+%\end{table*}
+
+%\vspace{5mm}
+%\begin{table*}[h]
+%\centering % centre table
+%\caption{Table of Calculated Values and Published Values for the Critical Angle of %Turpentine}
+%\label{tab:table-turpentine2}
+%\begin{tabular}{|c|c|}
+%\hline
+%Value & Critical Angle $\theta_c$/$^{\circ}$ \\
+%\hline
+%Observed & $45.0 \pm 1.0$  \\
+%\hline
+%Graph & $49.9 \pm 0.7$ \\
+%\hline
+%Theoretical \cite{Web01} & $42.9$ \\
+%\hline
+%\end{tabular}
+%\end{center}
+%\end{table*}
+
+\vspace{5mm}
+\begin{table*}[h]
+\centering % centre table
+\caption{Table of Calculated Values and Published Values for the Critical Angle of Water}
+\label{tab:table-water2}
+\begin{tabular}{|c|c|}
+\hline
+Value & Critical Angle $\theta_c$/$^{\circ}$ \\
+\hline
+Observed & $55.0\pm 1.0$  \\
+\hline
+Graph & $54.6 \pm 0.7$ \\
+\hline
+Theoretical \cite{Web01} & $48.6$ \\
+\hline
+\end{tabular}
+%\end{center}
+\end{table*}
+
+\vspace{5mm}
+\begin{table*}[h]
+\centering % centre table
+\caption{Table of Calculated Values and Published Values for the Critical Angle of Olive Oil}
+\label{tab:table-oil2}
+\begin{tabular}{|c|c|}
+\hline
+Value & Critical Angle $\theta_c$/$^{\circ}$ \\
+\hline
+Observed & $49.0\pm 1.0$  \\
+\hline
+Graph & $49.8 \pm 0.6$ \\
+\hline
+Theoretical \cite{Web01} & $43.2$ \\
+\hline
+\end{tabular}
+%\end{center}
+\end{table*}
+
+\vspace{5mm}
+\begin{table*}[h]
+\centering % centre table
+\caption{Table of Calculated Values and Published Values for the Critical Angle of Turpentine}
+\label{tab:table-turpentine2}
+\begin{tabular}{|c|c|}
+\hline
+Value & Critical Angle $\theta_c$/$^{\circ}$ \\
+\hline
+Observed & $45.0\pm 1.0$  \\
+\hline
+Graph & $49.9 \pm 0.7$ \\
+\hline
+Theoretical \cite{Web01} & $42.9$ \\
+\hline
+\end{tabular}
+%\end{center}
+\end{table*}
+
+\vspace{5mm}
+\begin{table*}[h]
+\centering % centre table
+\caption{Table of Calculated Values and Published Values for the Critical Angle of Gin $\sim40\%$ Ethyl Alcohol}
+\label{tab:table-gin2}
+\begin{tabular}{|c|c|}
+\hline
+Value & Critical Angle $\theta_c$/$^{\circ}$ \\
+\hline
+Observed & $49.0\pm 1.0$  \\
+\hline
+Graph & $54.4 \pm 0.7$ \\
+\hline
+Theoretical \cite{Web02} & $47.4$ \\
+\hline
+\end{tabular}
+%\end{center}
+\end{table*}
+
+\cleardoublepage
+\noindent
+In addition to the critical angle, The Brewster's angle for these various liquids was also investigated. Again, an observed, calculated and theoretical value were obtained using the same techniques mentioned in \secref{ssec:brewsters-angle} for the acrylic D shaped block. The associated errors for these measurements were also determined by the same techniques mentioned in \secref{ssec:brewsters-angle}. The results for these are presented in the tables below. All of these results show some variation and will be discussed further in \secref{sec:discussion}.
+
+\vspace{10mm}
+\begin{table*}[h]
+\centering % centre table
+\caption{Table of Calculated Values and Published Values for the Brewster's angle of Water}
+\label{tab:table-water3}
+\begin{tabular}{|c|c|}
+\hline
+Value & Brewster's Angle $\theta_B$/$^{\circ}$ \\
+\hline
+Observed & $58.0 \pm 1.0$  \\
+\hline
+Graph & $50.8 \pm 0.3$ \\
+\hline
+Theoretical \cite{Web01} & $53.1$ \\
+\hline
+\end{tabular}
+%\end{center}
+\end{table*}
+
+\vspace{10mm}
+\begin{table*}[h]
+\centering % centre table
+\caption{Table of Calculated Values and Published Values for the Brewster's angle of Olive Oil}
+\label{tab:table-oil3}
+\begin{tabular}{|c|c|}
+\hline
+Value & Brewster's Angle $\theta_B$/$^{\circ}$ \\
+\hline
+Observed & $47.0 \pm 1.0$  \\
+\hline
+Graph & $52.6 \pm 0.3$ \\
+\hline
+Theoretical \cite{Web01} & $55.6$ \\
+\hline
+\end{tabular}
+%\end{center}
+\end{table*}
+
+\vspace{10mm}
+\begin{table*}[h]
+\centering % centre table
+\caption{Table of Calculated Values and Published Values for the Brewster's angle of Turpentine}
+\label{tab:table-turpentine3}
+\begin{tabular}{|c|c|}
+\hline
+Value & Brewster's Angle $\theta_B$/$^{\circ}$ \\
+\hline
+Observed & $48.5 \pm 1.0$  \\
+\hline
+Graph & $52.6 \pm 0.3$ \\
+\hline
+Theoretical \cite{Web01} & $55.8$ \\
+\hline
+\end{tabular}
+%\end{center}
+\end{table*}
+
+\newpage
+\vspace{5mm}
+\begin{table*}[h]
+\centering % centre table
+\caption{Table of Calculated Values and Published Values for the Brewster's angle of Gin $\sim40\%$ Ethyl Alcohol}
+\label{tab:table-gin3}
+\begin{tabular}{|c|c|}
+\hline
+Value & Brewster's Angle $\theta_B$/$^{\circ}$ \\
+\hline
+Observed & $49.0\pm 1.0$  \\
+\hline
+Graph & $50.9 \pm 0.2$ \\
+\hline
+Theoretical \cite{Web02} & $53.6$ \\
+\hline
+\end{tabular}
+%\end{center}
+\end{table*}
+
+
+\section{Discussion}
+\label{sec:discussion}
+
+%Mention about Part 2 parallel colours and Part 3 separation of colours too.
+
+
+Comparing the values obtained for the refractive index of acrylic given in \tabref{tab:table1}, it is clear that the estimated and graphical value of acrylic are very close to the theoretical value. The theoretical value of acrylic just lies outside the associated uncertainty range of the graphical value by 0.01$^{\circ}$. This difference could be due to the measurements taken of the refracted angle during the experiment. As mentioned in \secref{ssec:refractive-index-of-acrylic}, the refracted angles were difficult to observer at higher angles of incidence. This lead to some inaccuracy when measuring the refracted angle using the ray table. Also, when undertaking the experiment into the refractive index of acrylic, it was noted that Snell's law was reciprocal when rotating the lens and having the incident beam enter the curved side of the D shaped lens. This acted as a check to see if the results obtained for the refracted beam was valid. However, they weren't exactly reciprocal due to the difficulty in observing and measuring the refracted beam. This was 'wider' on certain incident angles and was difficult to gain an accurate refracted angle reading.
+
+\vspace{2mm}
+\noindent
+The refractive index of acrylic was much more accurately determined than the refractive index of the various liquids. By inspecting the values given in \tabref{tab:table-water}, \tabref{tab:table-oil}, \tabref{tab:table-turpentine} and \tabref{tab:table-gin} it is clear that there is much variation between the graph and theoretical values. This could be due to a number of factors. One of which is the samples may have been contaminated with some impurities which lead to the different refractive indices compared to that of the theoretical values. For example, the water tested was not distilled water and the gin may not have been the exact correct percentage of alcohol compared to the $41.51\%$ given in \cite{Web02}. Therefore some of this variation in the calculated refractive index could be due to this factor. 
+
+\vspace{2mm}
+\noindent
+The values for the critical angle, $\theta_c$, in \tabref{tab:table2} are all fairly close to each other. However, the theoretical value for the critical angle lies outside of both of the associated uncertainties for the observed and graphical values. The observed value was difficult to obtain for the critical angle as the transition from the refracted to the totally internally reflected beam was difficult to measure. Also, the discrepancy in the graph value of the critical angle could arise from the difficulty of measuring the angle of the observed refracted beam when obtaining the refractive index for the acrylic D shaped lens. Thus, impacting on the calculated graphical value for the critical angle obtained by \eqref{eq:critical-angle} described in \secref{sec:theory}.
+
+\vspace{2mm}
+\noindent
+By inspecting the values for the critical angle of the various fluids given in \tabref{tab:table-water2}, \tabref{tab:table-oil2}, \tabref{tab:table-turpentine2} and \tabref{tab:table-gin2} it is evident that there is variation between these values. On some occasions, the observed values for $\theta_B$ were difficult to distinguish as the transition of total internal reflection was hard to observe. And, again, there may have been impurities in the samples that contributed to these variations in results. 
+
+\vspace{2mm}
+\noindent
+Comparing the values for the Brewster's angle in \tabref{tab:table3}, again it is clear to see that the values are all relatively close to each other. However, the theoretical value lies outside the associated uncertainties of the observed and graphical values. The observed value for the Brewster's angle was hard to measure as the reduction in brightness of the reflected light was difficult to observe. Therefore, the observed Brewster's angle could not be determined with great accuracy. Again, as mentioned above for the critical angle, the discrepancy in the  graphical value for the Brewster's angle could be due to the difficulty in the measurement of the refractive index of the acrylic D shaped lens. This value for the refractive index obtained from the graph in \figref{fig:graph} would impact on the Brewster's angle due to the relationship \eqref{eq:brewser's-angle}, as mentioned in \secref{sec:theory}.
+
+\vspace{2mm}
+\noindent
+The obtained values for the Brewster's angle given in \tabref{tab:table-water3}, \tabref{tab:table-oil3}, \tabref{tab:table-turpentine3} and \tabref{tab:table-gin3} also show clear discrepancies between the values. Again, the observed values for the Brewster's angle were hard to distinguish due to the difficulty in observing the $50\%$ dip in brightness of the reflected beam. Also, as mentioned previously there may have been contaminants in the samples that led to the differences in results.
+
+\vspace{2mm}
+\noindent
+A way of improving the accuracy of the values given in \tabref{tab:table1}, \tabref{tab:table2} and \tabref{tab:table3} would be to repeat the experiment another two or three times and then take the average value of the refracted angle for every given angle of incidence. This would then give a more true representation of all the data given in \secref{sec:results} and hence would have improved the reliability of of the experiment. Another benefit of repeating the experiment would be that the associated uncertainties obtained for the graphical values of the refractive index, critical angle and Brewster's angle from the error in the gradient of the graph (\figref{fig:graph}), could be compared with a statistical approach. This approach would first calculate the mean measurement of the refracted angles for a given incident angle. Then a standard deviation in the sample measurements could be obtained and finally an associated error in the mean value of these refracted angle measurements could be compared with the errors obtained via the error in the gradient of \figref{fig:graph}. 
+
+\vspace{2mm}
+\noindent
+This was rectified when undertaking the extension to the experiment and testing the refractive properties of the various liquids as mentioned in \secref{ssec:properties-of-fluids}. The measured refracted angles were repeated to improve the reliability and precision of the measurements. However, in order to obtain more accurate values of these results and improving the experiment would be to source some fresh samples and repeat the experiment. Then, these new values of the refractive index could be compared with the theoretical values. 
+
+\vspace{2mm}
+\noindent
+Other interesting properties about the refractive index of acrylic when using the trapezoid were also observed. When undertaking the colour separation for the single ray (details of the method is described in \secref{sec:method}) of white light as it passed through the acrylic trapezoid the full spectrum of colours that make up white light were observed. It was noted that the blue light had the greatest angle of refraction and the red light had the smallest angle of refraction. This in turn implies that the refractive index of acrylic increases with decreasing wavelength. Thus acrylic has a normal dispersion property. When changing the light source from a single ray of white light to the three primary colour the predicted result would be that the light ray would not leave parallel to each other as they would be diffracted by different angles due to the observations just mentioned, as shown in \figref{fig:refraction-2}. 
+
+\begin{figure}[h]
+\centering
+\includegraphics[scale=0.4]{"Refraction 2".pdf}
+\caption{Prediction of Emerging Primary Colour Rays}
+\label{fig:refraction-2}
+\end{figure}
+
+\noindent
+However, when performing the experiment the bottom incident blue light ray was not intersecting the acrylic trapezoid block (due to the wider width of the three beams compared to that of the single white light beam). So, the block was moved upward so this could occur. However, the following occurred as described in \figref{fig:refraction-1}:
+
+\begin{figure}[h]
+\centering
+\includegraphics[scale=0.4]{"Refraction 1".pdf}
+\caption{Observation of Emerging Primary Colour Rays}
+\label{fig:refraction-1}
+\end{figure}
+
+\noindent
+After later analysis and physical insight, it is clear from these findings observed in \figref{fig:refraction-1}, that when the block was moved upwards the source should have been changed back to the single white light ray and the trapezoid rotated until the white light separated out into it's individual coloured components. Then, the result predicted in \figref{fig:refraction-2} would most likely have been observed. This is because the light would have been at such an angle that the white light would have separated out into its individual components and therefore, when changing the source to the three primary colours these would not emerge parallel due to this separation. 
+
+\vspace{2mm}
+\noindent
+So, with this in mind, the experiment was repeated by moving the block upwards then rotating the trapezoid until the white light separated into its component colours. Then, using the three primary source colours \textit{without} moving the block, the result as predicted in \figref{fig:refraction-2} actually occurred. Thus, proving the theory as discussed above.
+
+\vspace{2mm}
+\noindent
+In addition, by using the acrylic D shaped lens and rotating it on the ray table as described in \secref{ssec:colour-separation}, the refracted white light was separated into its individual colour components. The incident angle at which this occurred was $36.0^{\circ}$. The refracted angle measured for the red light component was $62.5\pm0.1^{\circ}$ and its corresponding refractive index for acrylic was $1.51\pm0.03$. The refracted angle measured for the blue light component was $65.5\pm0.1^{\circ}$ and its corresponding refractive index for acrylic was $1.55\pm0.03$. Again these results show that the refractive index increases for decreasing wavelength. Hence, acrylic has a normal dispersion property and this supports the initial findings obtained when using the acrylic trapezoid to separate the component colours of the incident white light described earlier.
+
+\vspace{2mm}
+\noindent
+
+
+\section{Conclusion}
+\label{sec:conclusion}
+
+Overall the experiment was fairly successful in the different ways of obtaining the refractive index of acrylic, the critical angle and the Brewster's angle. Even though all the theoretical results lie outside the associated uncertainties of the estimated, graph and observed values these results are close to that of the theoretical values in all cases. But, improvements as mentioned in \secref{sec:discussion} could have been made when performing the analysis of the refractive indices of the various fluids. More care should have been taken to source fresh samples and also to ensure that these samples are of the correct concentrations.
+
+\begin{thebibliography}{9}
+\bibitem{Paper01} Laws of refraction and reflection worksheet.
+\bibitem{Book01} Young and Freedman, \textit{University Physics}, 13\textsuperscript{th} Edition, pages 1202--1205.
+\bibitem{Book02} Young and Freedman, \textit{University Physics}, 13\textsuperscript{th} Edition, pages 1211--1212.
+\bibitem{Web01} \url{https://www.engineeringtoolbox.com/refractive-index-d_1264.html}
+\bibitem{Web02} \url{http://ecommons.luc.edu/cgi/viewcontent.cgi?article=1667&context=luc_theses} See page 22 for refractive index values.
+\end{thebibliography}
+
+\end{document}
